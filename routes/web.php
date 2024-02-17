@@ -2,20 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Post;
 
-Route::middleware(['admin'])->group(function () {
-    Route::get('/', function () {
-        // abort(503);
-        return view('welcome');
-    });
+Route::get('/', function () {
+    // dd(Post::all());
+    $posts = Post::all();
+    $posts =Post::paginate(5);
+
+    return view('welcome', ['posts' => $posts]);
 });
-
-Route::get('asdad', function () {
-    echo 'login page';
-})->name('login');
-
-Route::post('/test', "App\Http\Controllers\Auth\LoginController@test");
-
-// function(Request $request){
-//     dd($request->all());
-// }

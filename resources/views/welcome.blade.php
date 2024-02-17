@@ -2,16 +2,14 @@
 
 @section('content')
 
-@foreach ($errors->all() as $error)
-{{$error}} <br>
+@foreach ($posts as $post)
+    <div>
+        <h3> {{$post->title}}</h3>
+        <p>{{$post->content}}</p>
+    </div>
 @endforeach
 
-<form action="/test" method="post">
-    <input type="text" name="title" value="{{old('title')}}"><br>
-    <input type="text" name="desc" value="{{old('desc')}}">><br>
-    @csrf
-    <button type="submit">Submit</button>
-</form>
-
+{{ $posts->links()}}
+    
 @endsection
  
