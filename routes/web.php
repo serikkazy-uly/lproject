@@ -3,13 +3,14 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware(['guest', 'admin'])->group(function () {
+Route::middleware(['admin'])->group(function () {
     Route::get('/', function () {
+        // abort(503);
         return view('welcome');
     });
 });
 
-Route::get('asdad', function(){
+Route::get('asdad', function () {
     echo 'login page';
 })->name('login');
 

@@ -15,9 +15,10 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (true){ //!$user->isAdmin()
-            dd('404');
-        } 
+        if (true) { //!$user->isAdmin()
+            // dd('404');
+            abort(404);
+        }
         return $next($request);
     }
 }
