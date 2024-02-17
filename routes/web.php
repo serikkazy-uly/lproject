@@ -7,7 +7,7 @@ use App\Post;
 Route::get('/', function () {
     // dd(Post::all());
     $posts = Post::all();
-    $posts =Post::paginate(5);
+    $posts =Post::simplePaginate(5);
 
     return view('welcome', ['posts' => $posts]);
 });
