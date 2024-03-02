@@ -1,21 +1,28 @@
+
 <?php
 
+use App\Http\Controllers\UserController;
+
+// use App\Post;
+// use App\User;
 use Illuminate\Support\Facades\Route;
 
-use App\Post;
 
-Route::get('/', function () {
-    // dd(Post::all());
-    // $posts = Post::all();
-    // $posts =Post::simplePaginate(5);
+// Route::get('/', function () {
+    // $user = User::first();
+    // dd($user);
+    // $post = Post::first();
+    // dd($user->posts->pluck('title')->all());
+    // dd($post);
+//hasMany:
+    // $user->phone;
+    // $user->comments;
+    // $post->comments;
+    // $comment->post;
+    // $comment->user;
+// });
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
-    // return view('welcome', ['posts' => $posts]);
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
 
-    Post::create([
-         'title' => 'efdsfd',
-         'slug' => 'asd',
-         'content' => 'efdsfd',
-         'date' => date('Y-m-d'),
-         'user_id' => 2
-     ]);
-});
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
