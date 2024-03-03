@@ -23,12 +23,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index'); // list
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('user.index'); // list
 
-Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create'); // interface of create
+Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create'); // interface of create
 
-Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store'); // add user to db
-Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('users.show'); // get only one user {id}
-Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit'); // upd by one user
-Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update'); // upd by action
-Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.destroy');
+Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('user.store'); // add user to db
+Route::get('/users/{user}', [App\Http\Controllers\UserController::class, 'show'])->name('user.show'); // get only one user {id}
+Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit'); // upd by one user
+Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update'); // upd by action
+Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('user.destroy');

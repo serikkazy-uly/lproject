@@ -9,14 +9,13 @@ class UserController extends Controller
 {
     public function index()
     {
-        // return view('users.index');
         $users = User::all();
-        return view('users.index', ['users' => $users]);
+        return view('user.index', ['users' => $users]);
     }
 
     public function create()
     {
-        return view('users.create');
+        return view('user.create');
     }
 
     public function store(Request $request)
@@ -24,7 +23,7 @@ class UserController extends Controller
         // dd($request);    
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:user',
             'password' => 'required|min:6',
         ]);
         User::create($request->all());
@@ -35,7 +34,7 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('users.edit', ['user' => $user]);
+        return view('user.edit', ['user' => $user]);
     }
 
     public function update(User $user, Request $request)
@@ -43,7 +42,7 @@ class UserController extends Controller
         // dd($request);    
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:user',
             'password' => 'required|min:6',
         ]);
         $user->update($data);
