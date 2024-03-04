@@ -48,4 +48,4 @@ Route::get('/users/create', 'App\Http\Controllers\UserController@create')->name(
 
 Route::get('/users/update', 'App\Http\Controllers\UserController@update')->name('user.update'); // upd by action
 
-// Route::delete('/users/{user}/delete', 'App\Http\Controllers\UserController@destroy')->name('user.destroy');
+Route::get('/users/delete', 'App\Http\Controllers\UserController@delete')->name('user.delete');
