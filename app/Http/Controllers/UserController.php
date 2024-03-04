@@ -41,7 +41,7 @@ class UserController extends Controller
         ]);
         // dd('updated');
 
-      
+
     }
 
     public function delete(User $user)
@@ -52,10 +52,10 @@ class UserController extends Controller
         $user->restore(); // восстановление удаленной строки
         // $user->delete();
         dd('deleted');
-    }   
+    }
 
-
-    public function firstOrCreate(){
+    public function firstOrCreate()
+    {
         // $user = User::find(1);
         $otherUser = [
             'name' => 'fara',
@@ -68,6 +68,25 @@ class UserController extends Controller
         ],[
             'name' => 'dayana',
             'email' => 'dayana2@email.com',
+            'password' => '123456',
+        ]);
+        dump($user->name);
+        dd('end');
+    }
+
+    public function updateOrCreate(){
+        // dd(111);
+        $otherUser = [
+            'name' => 'fara',
+            'email' => 'fara@example.com',
+            'password' => 'dadada',
+        ] ;
+
+        $user = User::updateOrCreate([
+            'email' => 'dayana@email.com',
+        ],[
+            'name' => 'dayana',
+            'email' => 'dayana@email.com',
             'password' => '123456',
         ]);
         dump($user->name);
