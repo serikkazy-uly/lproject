@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -30,25 +29,7 @@ class UserController extends Controller
             User::create($user); // Добавил юзера
         }
         dd('created');
-        // return view('user.create');
     }
-
-    // public function store(Request $request)
-    // {
-    //     // dd($request);    
-    //     $data = $request->validate([
-    //         'name' => 'required',
-    //         'email' => 'required|email|unique:users',
-    //         'password' => 'required|min:6',
-    //     ]);
-    //     User::create($data);
-    //     return redirect(route('user.index'));
-    // }
-
-    // public function edit(User $user)
-    // {
-    //     return view('user.edit', ['user' => $user]);
-    // }
 
     public function update(User $user)
     {
@@ -60,14 +41,7 @@ class UserController extends Controller
         ]);
         // dd('updated');
 
-        // $data = $request->validate([
-        //     'name' => 'required',
-        //     'email' => 'required|email|unique:users',
-        //     'password' => 'required|min:6',
-        // ]);
-        // $user->update($data);
-        // dd($user);
-        // return redirect(route('user.index'))->with('success', 'User Updated Succesffully');
+      
     }
 
     public function delete(User $user)
@@ -75,10 +49,28 @@ class UserController extends Controller
         // dd('delete page');
         $user = User::withTrashed()->find(2);
         // dd($user->name);
-        $user->restore();
+        $user->restore(); // восстановление удаленной строки
         // $user->delete();
         dd('deleted');
-        // $user->delete();
-        // return redirect(route('user.index'))->with('success', 'User deleted Succesffully');
     }   
+
+
+    public function firstOrCreate(){
+        // $user = User::find(1);
+        $otherUser = [
+            'name' => 'fara',
+            'email' => 'fara@example.com',
+            'password' => 'dadada',
+        ] ;
+
+        $user = User::firstOrCreate([
+            'email' => 'dayana2@email.com',
+        ],[
+            'name' => 'dayana',
+            'email' => 'dayana2@email.com',
+            'password' => '123456',
+        ]);
+        dump($user->name);
+        dd('end');
+    }
 }
