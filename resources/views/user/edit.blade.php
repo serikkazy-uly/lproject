@@ -17,7 +17,7 @@
         @endif
     </div>
 
-    <form method="POST" action="{{ route('user.update', ['user' => $user])}}">
+    <form method="POST" action="{{ route('user.update', ['user' => $user->id])}}">
         @csrf
         @method('PUT')
         <label for="name">Name:</label>

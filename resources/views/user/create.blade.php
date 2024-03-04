@@ -17,31 +17,30 @@
                 <li>{{$error}}</li>
             @endforeach
         </ul>
-
-
         @endif
     </div>
 
-    <form action="{{ route('user.store') }}" method="POST">
+        <form action="{{ route('user.store') }}" method="POST">
+
         @csrf
-    <div>
-        <label for="">Name:</label>
-        <input type="text" name="name" placeholder="Name" required>
-    </div>
-    <br>
-    <div>
-        <label for="">Email:</label>
-        <input type="email" name="email" placeholder="Email" required>
-    </div>
-    <br>
-    <div>
-        <label for="">Password:</label>
-        <input type="password" name="password" placeholder="Password" required>
-    </div>
-    <div>
-        <button type="submit" value="Save New User">Submit</button>
-    </div>
-</form>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+        </div>
+        <br>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+        </div>
+        <br>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
 
 </body>
 
