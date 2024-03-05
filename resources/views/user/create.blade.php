@@ -1,13 +1,26 @@
-@extends('layouts.main')
+@extends('layouts.main') 
 @section('content')
 <div>
-    <form>
+    <form action="{{ route('user.store') }}" method="post">
+        {{-- {{ csrf_field() }} --}}
+@csrf
         <div class="form-group">
-          <label for="user">User</label><br>
-          <input type="text" class="form-control" id="user" placeholder="User">
+          <label for="name">Name</label><br>
+          <input name="name" type="text" class="form-control" id="name" placeholder="Name">
         </div>
        <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
+       <div class="form-group">
+        <label for="email">Email</label><br>
+        <input name="email" type="text" class="form-control" id="email" placeholder="Email">
+      </div>
+     <br>
+     <div class="form-group">
+        <label for="password">Password</label><br>
+        <input  name="password" type="text" class="form-control" id="password" placeholder="Password">
+      </div>
+     <br>
+
+       <button type="submit" class="btn btn-primary">Create</button>
       </form>
 </div>
 @endsection

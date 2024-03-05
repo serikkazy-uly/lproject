@@ -8,17 +8,29 @@ class UserController extends Controller
 {
     public function index()
     {
-        // dd($user);
         $users = User::all();
-        // dd($users);
         return view('user.index', ['users' => $users]); // compact('users')
-        // dd('end');
     }
 
     public function create()
     {
-       return view('user.create');
+        return view('user.create');
     }
+
+
+    public function store()
+    {
+        $data=request()->validate([
+            'name' => 'string',
+            'email' => 'string',
+            'password' => 'string',
+        ]);
+        User::create($data);
+        return redirect()->route('user.index');
+        // dd($data);
+        // dd(request()->all());
+    }
+
 
     public function update(User $user)
     {
@@ -28,7 +40,6 @@ class UserController extends Controller
             'email' => 'updated',
             'password' => 'updated',
         ]);
-        // dd('updated');
 
 
     }
@@ -40,7 +51,7 @@ class UserController extends Controller
         // dd($user->name);
         $user->restore(); // восстановление удаленной строки
         // $user->delete();
-        dd('deleted');
+        // dd('deleted');
     }
 
     public function firstOrCreate()
@@ -50,40 +61,41 @@ class UserController extends Controller
             'name' => 'fara',
             'email' => 'fara@example.com',
             'password' => 'dadada',
-        ] ;
+        ];
 
         $user = User::firstOrCreate([
             'email' => 'dayana2@email.com',
-        ],[
+        ], [
             'name' => 'dayana',
             'email' => 'dayana2@email.com',
             'password' => '123456',
         ]);
-        dump($user->name);
-        dd('end');
+        // dump($user->name);
+        // dd('end');
     }
 
-    public function updateOrCreate(){
+    public function updateOrCreate()
+    {
         // dd(111);
         $otherUser = [
             'name' => 'fara',
             'email' => 'fara@example.com',
             'password' => 'dadada',
-        ] ;
+        ];
 
         $user = User::updateOrCreate([
             'email' => 'dayana@email.com',
-        ],[
+        ], [
             'name' => 'dayana',
             'email' => 'dayana@email.com',
             'password' => '123456',
         ]);
-        dump($user->name);
-        dd('end');
+        // dump($user->name);
+        // dd('end');
     }
 
-// public function main(){
+    // public function main(){
 
-// }
+    // }
 
 }

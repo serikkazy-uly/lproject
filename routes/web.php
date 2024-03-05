@@ -5,12 +5,15 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/users', 'App\Http\Controllers\UserController@index')->name('user.index');
+
 Route::get('/users/create', 'App\Http\Controllers\UserController@create');
+Route::post('/users', 'App\Http\Controllers\UserController@store')->name('user.store');
+
 Route::get('/users/update', 'App\Http\Controllers\UserController@update'); 
 Route::get('/users/delete', 'App\Http\Controllers\UserController@delete');
 Route::get('/users/first_or_create', 'App\Http\Controllers\UserController@firstOrCreate');
