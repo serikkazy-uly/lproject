@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 | page not found</title>
+    <title>error</title>
 </head>
 <body>
-    <h1>Hi, this page is not your's address</h1>
+    <h2>404 | page not found</h2>
+    {{-- <h1>Sorry, this page is not your's address</h1> --}}
 </body>
 </html>
