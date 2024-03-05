@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,42 +10,27 @@
     @vite('resources/css/app.css')
     <title>Document</title>
 </head>
+
 <body>
-    {{-- @foreach($users as $user)
-        <tr>
 
-            <div>
-                <td>{{ $user->name }}</td>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-            </div>
-<br>
-            <div>
-
-                <td>{{ $user->email }}</td>
-            </div><br>
-            <td>
-                <a href="{{ route('users.edit', $user->id) }}">Edit</a>
-                <form method="POST" action="{{ route('user.delete', $user->id) }}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach --}}
-
-        <div>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <li><a class="nav-item nav-link active" href="{{ route('main.index') }}">Main</a></li>
+                        <li><a class="nav-item nav-link" href="{{ route('about.index') }}">About</a></li>
+                        <li><a class="nav-item nav-link" href="{{ route('user.index') }}">Users</a></li>
+                    </div>
+                </div>
+            </nav>
             <nav>
-                <ul>
-                    <li><a href="{{ route('main.index') }}">Main</a><br></li>
-                        <li> <a href="{{ route('about.index') }}">About</a><br></li>
-                        <li> <a href="{{ route('user.index') }}">Users</a></li>
-                </ul>
             </nav>
         </div>
+        @yield('content')
+    </div>
 
-        <div class="container">
-            @yield('content')
-        </div>
 </body>
+
 </html>
