@@ -11,25 +11,13 @@ class UserController extends Controller
         // dd($user);
         $users = User::all();
         // dd($users);
-        return view('users', ['users' => $users]); // compact('users')
+        return view('user.index', ['users' => $users]); // compact('users')
         // dd('end');
     }
 
     public function create()
     {
-        $userArr = [
-            [
-                'name' => 'dayana2',
-                'email' => 'dayana2@email.com',
-                'password' => 'password2',
-            ],
-        ];
-
-        foreach ($userArr as $user) {
-            // dd($user);
-            User::create($user); // Добавил юзера
-        }
-        dd('created');
+       return view('user.create');
     }
 
     public function update(User $user)
