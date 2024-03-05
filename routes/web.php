@@ -19,8 +19,12 @@ Route::get('/users/{user}', 'App\Http\Controllers\UserController@show')->name('u
 Route::get('/users/{user}/edit', 'App\Http\Controllers\UserController@edit')->name('user.edit');
 Route::patch('/users/{user}', 'App\Http\Controllers\UserController@update')->name('user.update');
 
-Route::get('/users/update', 'App\Http\Controllers\UserController@update'); 
+Route::delete('/users/{user}', 'App\Http\Controllers\UserController@destroy')->name('user.delete');
+
+
 Route::get('/users/delete', 'App\Http\Controllers\UserController@delete');
+Route::get('/users/update', 'App\Http\Controllers\UserController@update'); 
+
 Route::get('/users/first_or_create', 'App\Http\Controllers\UserController@firstOrCreate');
 Route::get('/users/update_or_create', 'App\Http\Controllers\UserController@updateOrCreate');
 
