@@ -11,7 +11,8 @@ class UserController extends Controller
         // dd($user);
         $users = User::all();
         // dd($users);
-        return view('user.index', ['users' => $users]);
+        return view('users', ['users' => $users]); // compact('users')
+        // dd('end');
     }
 
     public function create()
@@ -92,4 +93,9 @@ class UserController extends Controller
         dump($user->name);
         dd('end');
     }
+
+// public function main(){
+
+// }
+
 }

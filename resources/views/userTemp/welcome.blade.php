@@ -1,4 +1,4 @@
-@extends('layout')
+{{-- @extends('layout')
 
 @section('content')
 
@@ -12,4 +12,4 @@
 {{ $posts->links()}}
     
 @endsection
- 
+  --}}
