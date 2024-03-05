@@ -33,12 +33,9 @@
         <div>
             <nav>
                 <ul>
-                    <li>
-                        <a href="/main">Main</a>
-                        <a href="/about">About</a>
-                        <a href="/users">Users</a>
-                        {{-- <a href=""></a> --}}
-                    </li>
+                    <li><a href="{{ route('main.index') }}">Main</a><br></li>
+                        <li> <a href="{{ route('about.index') }}">About</a><br></li>
+                        <li> <a href="{{ route('user.index') }}">Users</a></li>
                 </ul>
             </nav>
         </div>
