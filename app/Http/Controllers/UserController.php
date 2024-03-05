@@ -20,28 +20,41 @@ class UserController extends Controller
 
     public function store()
     {
-        $data=request()->validate([
+        $data = request()->validate([
             'name' => 'string',
             'email' => 'string',
             'password' => 'string',
         ]);
         User::create($data);
         return redirect()->route('user.index');
-        // dd($data);
-        // dd(request()->all());
+    }
+
+    public function show(User $user)
+    {
+        // $user = User::findOrFail();
+        // dd($user->name);
+        return view('user.show', ['user' => $user]);
+    }
+
+    public function edit(User $user)
+    {
+        // $user = User::findOrFail();
+        // dd($user->name);
+        return view('user.edit', ['user' => $user]);
     }
 
 
     public function update(User $user)
     {
-        $user = User::find(7);
-        $user->update([
-            'name' => 'updated',
-            'email' => 'updated',
-            'password' => 'updated',
+        // dump($user->all());
+        $data = request()->validate([
+            'name' => 'string',
+            'email' => 'string',
+            'password' => 'string',
         ]);
-
-
+        $user->update($data);
+        return redirect()->route('user.show', $user->id);
+        // dd($data);
     }
 
     public function delete(User $user)
