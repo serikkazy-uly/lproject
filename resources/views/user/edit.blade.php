@@ -1,8 +1,9 @@
 @extends('layouts.main')
 @section('content')
     <div>
-        <form action="{{ route('user.store') }}" method="post">
+        <form action="{{ route('user.update', $user->id) }}" method="post">
             @csrf
+            @method('patch')
             <div class="form-group">
                 <label for="name">Name</label><br>
                 <input name="name" type="text" class="form-control" id="name" placeholder="Name">
@@ -19,7 +20,7 @@
             </div>
             <br>
 
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
 @endsection

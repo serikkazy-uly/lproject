@@ -4,21 +4,19 @@
 ###  Migration commands
 
 - **`docker compose exec -u 0 php-cli bash`**
-- **`php artisan make:migration create_posts_table` (example name)**
+- **`php artisan make:migration create_users_table` (example name)**
 - **`php artisan migrate`**
 
 
 ## Run project
-- **`git clone https://github.com/...`**
+- **`https://github.com/serikkazy-uly/lproject`**
 
-- **`cd ...`**
+- **`cd lproject`**
 
-- **`docker-compose up`**
+- **`docker-compose up -d`**
 
 ## Code 
 
-
-## kjhln
 
 
 
