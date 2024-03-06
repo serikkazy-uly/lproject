@@ -67,6 +67,13 @@ class UserController extends Controller
         // dd('deleted');
     }
 
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->route('user.index');
+    }
+
     public function firstOrCreate()
     {
         // $user = User::find(1);
@@ -104,11 +111,7 @@ class UserController extends Controller
             'password' => '123456',
         ]);
         // dump($user->name);
-        // dd('end');
     }
 
-    // public function main(){
-
-    // }
 
 }
