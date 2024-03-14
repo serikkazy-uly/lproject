@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', 'App\Http\Controllers\HomeController@index');
+
+
+// 2 вариант реализации роутинга через метод namespace():
+// Route::namespace('App\Http\Controllers')->group(function () {
+//     Route::get('/home', [HomeController::class, 'index']);
+// });
